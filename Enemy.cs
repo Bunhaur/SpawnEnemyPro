@@ -1,23 +1,20 @@
 using UnityEngine;
 
+[RequireComponent(typeof(EnemyMovement))]
+
 public class Enemy : MonoBehaviour
 {
+    private EnemyMovement _enemyMovement;
     private Player _target;
-    private float _speed = 8;
 
-    private void Update()
+    private void Awake()
     {
-        Move(_target);
+        _enemyMovement = GetComponent<EnemyMovement>();
     }
 
-    public void SetTarget(Player target)
+    public void TransferTarget(Player target)
     {
         _target = target;
-    }
-
-    private void Move(Player player)
-    {
-        transform.position = Vector3.MoveTowards(transform.position, player.transform.position, _speed * Time.deltaTime);
-        transform.LookAt(player.transform);
+        _enemyMovement.SetTarget(_target);
     }
 }

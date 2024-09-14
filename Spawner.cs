@@ -27,7 +27,7 @@ public class Spawner : MonoBehaviour
             _pointPosition = point.transform.position;
 
             newEnemy = Instantiate(_enemy, _pointPosition, Quaternion.identity);
-            newEnemy.SetTarget(point.GetTarget());
+            newEnemy.TransferTarget(point.GetTarget());
 
             yield return new WaitForSeconds(cooldown);
         }
