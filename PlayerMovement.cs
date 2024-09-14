@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] private MovePoint[] _points;
+    [SerializeField] private CheckPoint[] _points;
 
     private Vector3 _currentPoint;
     private float _speed = 10;
